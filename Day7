@@ -1,0 +1,39 @@
+function properNounCorrection(str) {
+    //  write code here.
+    return str.split("").splice(0,1)[0].toUpperCase().concat((str.toLowerCase().split("").splice(1)).join(""));
+}
+
+
+
+/**
+* Test Suite 
+*/
+describe('properNounCorrection()', () => {
+    it('adds proper noun capitalization', () => {
+        // arrange
+        const str = 'pARiS';
+        
+        // act
+        const result = properNounCorrection(str);
+
+        // log
+        console.log("result 1: ", result);
+        
+        // assert
+        expect(result).toBe('Paris');
+    });
+    
+     it('properly cased words are still correct', () => {
+        // arrange
+        const str = 'John';
+        
+        // act
+        const result = properNounCorrection(str);
+
+        // log
+        console.log("result 2: ", result);
+        
+        // assert
+        expect(result).toBe('John');
+    });
+});
