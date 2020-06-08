@@ -1,0 +1,33 @@
+function sumAllPrimes(num) {
+   let divisors = [];
+    for(let j = num; j > 1; j--){
+        divisors[j] = [];
+        for(let i = 2; i <= num; i++){
+        if(j % i == 0){
+            divisors[j].push(i);
+        }
+        }
+    }
+    return divisors.filter(arr => arr.length == 1).reduce((sum, arr) => sum + arr[0],0);
+  }
+
+
+
+/**
+* Test Suite 
+*/
+describe('sumAllPrimes()', () => {
+    it('adds all prime numbers up to input number', () => {
+        // arrange
+        const num = 978;
+        
+        // act
+        const result = sumAllPrimes(num);
+
+        // log
+        console.log("result: ", result);
+        
+        // assert
+        expect(result).toBe(73156);
+    })
+});
