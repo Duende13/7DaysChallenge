@@ -1,0 +1,26 @@
+function addTwoDigits(num)  {
+    // num to String, split it in "2" and "9" in an array, reduce and accummulate the numbers
+    // into sum but first you must parse the strings into integers. 
+    return num.toString().split("").reduce((sum, x) => parseInt(sum) + parseInt(x));
+}
+
+
+
+/**
+* Test Suite 
+*/
+describe('addBorder()', () => {
+    it('take a two digit number and return the sum of their numbers', () => {
+       // arrange
+        const num = 29;
+        
+        // act
+        const result = addTwoDigits(num);
+
+        // log
+        console.log("result: ", result);
+        
+        // assert
+        expect(result).toBe(11);
+    });
+});
