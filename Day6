@@ -1,0 +1,32 @@
+function makeArrayConsecutive(nums) {
+    var newArr = nums.sort();
+    var sum = 0;
+
+    for(var i=newArr[0]+1; i < newArr[newArr.length-1];i++){
+        if(newArr.indexOf(i) == -1){
+            sum+=1;
+        }
+    }
+    return sum;
+}
+
+
+
+/**
+* Test Suite 
+*/
+describe('makeArrayConsecutive()', () => {
+    it('returns total missing numbers between smallest and largest number', () => {
+        // arrange
+        const nums = [6, 2, 3, 8];
+        
+        // act
+        const result = makeArrayConsecutive(nums);
+
+        // log
+        console.log("result: ", result);
+        
+        // assert
+        expect(result).toBe(3);
+    })
+});
